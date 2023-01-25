@@ -1,8 +1,10 @@
 
 from flask import Flask, jsonify, request
 from datetime import datetime
+from calibration_predictor import calibrationController
 
 app = Flask(__name__)
+cal = calibrationController()
 
 print("Python Api Running...")
 
@@ -11,7 +13,8 @@ print("Python Api Running...")
 def hello():
     # print('Base called')
     api_log_save("Base", "Running Good")
-    return "Hello, World!"
+    return cal.predict_max_value(502, 1222, 9000)
+    # return "Hello"
 
 
 @app.route('/api/getname/<name>', methods=['GET'])
@@ -25,6 +28,11 @@ def getlog():
     api_log_save("getlog", "Log Saved")
     logFile = open("log_file.txt", "r")
     return jsonify(logFile.read())
+
+
+@app.route("/api/getcalibration/<min_sensor>/<min_weight>/<max_weight>")
+def getcalibration(min_sensor, min_weight, max_weight):
+    return jsonify(cal.predict_max_value(min_sensor, min_weight, max_weight))
 
 
 def api_log_save(api_name, message):
