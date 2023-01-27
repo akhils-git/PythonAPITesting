@@ -17,6 +17,19 @@ Base|Running Good|2023-01-25 17:53:53.424003
 Base|Running Good|2023-01-25 17:56:40.316041
 Base|Running Good|2023-01-25 18:03:05.059559
 Base|Running Good|2023-01-25 18:04:50.475049
+<<<<<<< HEAD
 Base|Running Good|2023-01-27 09:02:40.178401
 getname|Get name|2023-01-27 09:03:59.094901
 getname|Get name|2023-01-27 09:38:16.715580
+=======
+Base|Running Good|2023-01-27 10:51:54.099441
+Base|Running Good|2023-01-27 10:53:42.619367
+Base|Running Good|2023-01-27 10:57:37.217853
+Base|Running Good|2023-01-27 10:57:37.423725
+Base|Running Good|2023-01-27 10:57:37.592488
+Base|Running Good|2023-01-27 10:57:38.024293
+Base|Running Good|2023-01-27 11:44:01.358684
+Base|Running Good|2023-01-27 11:44:01.587067
+Base|Running Good|2023-01-27 11:44:02.166308
+Base|Running Good|2023-01-27 11:44:02.435448
+>>>>>>> 05bafc302fee65e1e09cfb59bafdbb01f3c5c2a7
