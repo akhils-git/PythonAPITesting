@@ -7,9 +7,7 @@ from sklearn.model_selection import train_test_split
 class calibrationController:
 
     def predict_max_value(self, min_sensor, min_weight, max_weight):
-        print("Sachin")
         calibrationData = pd.read_csv('VmsCalibrationDataset.csv')
-        # print(calibrationData)
         X = calibrationData[['Sensor Min Value','Empty Weight', 'Full Weight']]
         Y = calibrationData['Sensor Max Value']
         # Split the data into training and test sets
