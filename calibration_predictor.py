@@ -4,14 +4,17 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import train_test_split
 
+
 class calibrationController:
 
     def predict_max_value(self, min_sensor, min_weight, max_weight):
-        calibrationData = pd.read_csv('VmsCalibrationDataset.csv')
-        X = calibrationData[['Sensor Min Value','Empty Weight', 'Full Weight']]
+        calibrationData = pd.read_csv('./storage/VmsCalibrationDataset.csv')
+        X = calibrationData[['Sensor Min Value',
+                             'Empty Weight', 'Full Weight']]
         Y = calibrationData['Sensor Max Value']
         # Split the data into training and test sets
-        x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
+        x_train, x_test, y_train, y_test = train_test_split(
+            X, Y, test_size=0.2, random_state=42)
 
         # Create the decision tree regressor object
         model = DecisionTreeRegressor(random_state=1)
@@ -28,7 +31,7 @@ class calibrationController:
         X_new = np.array([min_sensor, min_weight, max_weight]).reshape(1, -1)
 
         # Use the model to predict the target value
-        predictions = model.predict(X_new) 
+        predictions = model.predict(X_new)
         predication = {
             "max_sensor": str(predictions[0]),
             "min_sensor": min_sensor,

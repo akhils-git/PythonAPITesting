@@ -24,7 +24,7 @@ def getname(name):
 @app.route('/api/getlog', methods=['GET'])
 def getlog():
     api_log_save("getlog", "Log Saved")
-    logFile = open("log_file.txt", "r")
+    logFile = open("./storage/log_file.txt", "r")
     return jsonify(logFile.read())
 
 
@@ -35,7 +35,7 @@ def getcalibration(min_sensor, min_weight, max_weight):
 
 
 def api_log_save(api_name, message):
-    logFile = open("log_file.txt", "a")  # append mode
+    logFile = open("./storage/log_file.txt", "a")  # append mode
     logFile.write(f"{api_name}|{message}|{str(datetime.now())}\n")
     logFile.close()
 
