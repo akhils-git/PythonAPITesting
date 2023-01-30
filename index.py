@@ -1,5 +1,5 @@
 
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify
 from datetime import datetime
 from calibration_predictor import calibrationController
 
