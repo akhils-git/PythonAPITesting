@@ -1,13 +1,16 @@
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from datetime import datetime
 # from calibration_predictor import calibrationController
 from core.calibration_predictor import calibrationController
+from file_manage import FileController
 
 app = Flask(__name__)
 cal = calibrationController()
+file_controller = FileController()
 
 print("Python Api Running...")
+
 
 @app.route("/")
 def hello():
@@ -32,6 +35,14 @@ def getlog():
 def getcalibration(min_sensor, min_weight, max_weight):
     api_log_save("getcalibration", "Max value generated")
     return jsonify(cal.predict_max_value(min_sensor, min_weight, max_weight))
+
+
+@app.route('/api/fileupload', methods=['POST'])
+def upload_file():
+    print(request.files)
+    responce = file_controller.upload_file(request)
+    api_log_save("fileupload", "Called")
+    return responce
 
 
 def api_log_save(api_name, message):

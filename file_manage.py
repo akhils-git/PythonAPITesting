@@ -1,38 +1,37 @@
-from flask import Flask, request, redirect, jsonify
+from flask import jsonify
+import os
 
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'exe'])
+class FileController:
 
-app = Flask(__name__)
+    def __init__(self):
+        self.ALLOWED_EXTENSIONS = set(
+            ['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'exe'])
+    # body of the constructor
 
+    def allowed_file(self, filename):
+        return '.' in filename and filename.rsplit('.', 1)[1].lower() in self.ALLOWED_EXTENSIONS
 
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
-@app.route('/file-upload', methods=['POST'])
-def upload_file():
-    # check if the post request has the file part.
-    if 'file' not in request.files:
-        resp = jsonify({'message': 'No file part in the request'})
-        resp.status_code = 400
-        return resp
-    file = request.files['file']
-    if file.filename == '':
-        resp = jsonify({'message': 'No file selected for uploading'})
-        resp.status_code = 400
-        return resp
-    if file and allowed_file(file.filename):
-        upload_basepath = file.filename
-        print(upload_basepath)
-        file.save(upload_basepath)
-        resp = jsonify({'message': 'File successfully uploaded'})
-        resp.status_code = 201
-        return resp
-    else:
-        resp = jsonify(
-            {'message': 'Allowed file types are txt, pdf, png, jpg, jpeg, gif'})
-        resp.status_code = 400
-        return resp
-
-
-app.run(host='0.0.0.0', port=5000)
+    def upload_file(self, request):
+        # check if the post request has the file part.
+        if 'file' not in request.files:
+            resp = jsonify({'message': 'No file part in the request'})
+            resp.status_code = 400
+            return resp
+        file = request.files['file']
+        if file.filename == '':
+            resp = jsonify({'message': 'No file selected for uploading'})
+            resp.status_code = 400
+            return resp
+        if file and self.allowed_file(file.filename):
+            upload_basepath = './storage/uploads/'+file.filename
+            file.save(upload_basepath)
+            file_size = os.stat(upload_basepath)
+            resp = jsonify(
+                {'message': 'File successfully uploaded', 'size': file_size.st_size/1024, "file_name": file.filename})
+            resp.status_code = 201
+            return resp
+        else:
+            resp = jsonify(
+                {'message': 'Allowed file types are txt, pdf, png, jpg, jpeg, gif'})
+            resp.status_code = 400
+            return resp
