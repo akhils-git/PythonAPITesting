@@ -22,7 +22,7 @@ def upload_file():
         resp.status_code = 400
         return resp
     if file and allowed_file(file.filename):
-        upload_basepath = "./storage/uploads/"+file.filename
+        upload_basepath = file.filename
         print(upload_basepath)
         file.save(upload_basepath)
         resp = jsonify({'message': 'File successfully uploaded'})
