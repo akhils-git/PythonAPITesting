@@ -45,6 +45,14 @@ def upload_file():
     return responce
 
 
+@app.route('/api/filelist', methods=['GET'])
+def filelist():
+    print(request.files)
+    responce = file_controller.list_files()
+    api_log_save("filelist", "Called")
+    return responce
+
+
 def api_log_save(api_name, message):
     logFile = open("./storage/log_file.txt", "a")  # append mode
     logFile.write(f"{api_name}|{message}|{str(datetime.now())}\n")

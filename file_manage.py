@@ -1,6 +1,7 @@
 from flask import jsonify
 import os
 
+
 class FileController:
 
     def __init__(self):
@@ -35,3 +36,11 @@ class FileController:
                 {'message': 'Allowed file types are txt, pdf, png, jpg, jpeg, gif'})
             resp.status_code = 400
             return resp
+
+    def list_files():
+        staticPath = "./storage/uploads/"
+        print(f"Files in the directory: {staticPath}")
+        files = os.listdir(staticPath)
+        # Filtering only the files.
+        files = [f for f in files if os.path.isfile(staticPath + '/' + f)]
+        return files
