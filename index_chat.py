@@ -1,10 +1,10 @@
 import openai
 
 # set the API key
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Define the prompt
-prompt = "What is ChatGPT?"
+prompt = "What about titanic explain"
 
 # Call the API to generate a response
 response = openai.Completion.create(
