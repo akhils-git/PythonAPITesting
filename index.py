@@ -3,11 +3,14 @@ from flask import Flask, jsonify, request
 from datetime import datetime
 # from calibration_predictor import calibrationController
 from core.calibration_predictor import calibrationController
+from core.chat_gpt import chatGPTController
 from file_manage import FileController
+
 
 app = Flask(__name__)
 cal = calibrationController()
 file_controller = FileController()
+chatgpt_controller = chatGPTController()
 
 print("Python Api Running...")
 
@@ -53,9 +56,30 @@ def filelist():
     return responce
 
 
+@app.route("/api/trychatgpt/<qtn>")
+def trychatgpt(qtn):
+    chatgpt_responce = chatgpt_controller.shoot(qtn.replace("_", " "))
+    chatgpt_log_save(qtn, chatgpt_responce["chatgpt_responce"])
+    return jsonify(chatgpt_responce)
+
+
+@app.route('/api/getchatgptlog', methods=['GET'])
+def getchatgptlog():
+    api_log_save("getchatgptlog", "Log Saved")
+    logFile = open("./storage/chat_gpt_log_file.txt", "r")
+    return jsonify(logFile.read())
+
+
 def api_log_save(api_name, message):
     logFile = open("./storage/log_file.txt", "a")  # append mode
     logFile.write(f"{api_name}|{message}|{str(datetime.now())}\n")
+    logFile.close()
+
+
+def chatgpt_log_save(qtn, answer):
+    logFile = open("./storage/chat_gpt_log_file.txt", "a")  # append mode
+    logFile.write(
+        f"Question : {qtn}\nAnswer:{answer}\nAnswer Generated at:{str(datetime.now())}\n\n")
     logFile.close()
 
 

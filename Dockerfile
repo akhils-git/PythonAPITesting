@@ -4,6 +4,7 @@ FROM python
 RUN pip install numpy
 RUN pip install pandas
 RUN pip install scikit-learn
+RUN pip install openai
 # RUN pip install face-recognition
 
 RUN mkdir /app
