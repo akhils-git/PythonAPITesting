@@ -4,11 +4,11 @@ import openai
 openai.api_key = "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"
 
 # Define the prompt
-prompt = "What about titanic explain"
+prompt = "what about iphone 14 issue"
 
 # Call the API to generate a response
 response = openai.Completion.create(
-    engine="text-davinci-002",
+    engine="text-davinci-003",
     prompt=prompt,
     max_tokens=1024,
     n=1,
