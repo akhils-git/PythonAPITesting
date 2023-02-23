@@ -6,7 +6,7 @@ from core.calibration_predictor import calibrationController
 from core.chat_gpt import chatGPTController
 from file_manage import FileController
 
-
+# Rahuls file
 app = Flask(__name__)
 cal = calibrationController()
 file_controller = FileController()
@@ -47,14 +47,15 @@ def upload_file():
     api_log_save("fileupload", "Called")
     return responce
 
+
 @app.route('/api/detectimageobjects', methods=['POST'])
 def upload_file():
     print(request.files)
     responce = file_controller.upload_file(request)
 
-    
     api_log_save("fileupload", "Called")
     return responce
+
 
 @app.route('/api/filelist', methods=['GET'])
 def filelist():
