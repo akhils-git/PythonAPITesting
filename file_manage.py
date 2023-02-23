@@ -37,10 +37,12 @@ class FileController:
             resp.status_code = 400
             return resp
 
-    def list_files():
+    def list_files(self):
         staticPath = "./storage/uploads/"
         print(f"Files in the directory: {staticPath}")
         files = os.listdir(staticPath)
+        print(files)
         # Filtering only the files.
         files = [f for f in files if os.path.isfile(staticPath + '/' + f)]
+
         return files

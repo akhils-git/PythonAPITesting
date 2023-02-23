@@ -1,63 +1,10 @@
-getcalibration|Max value generated|2023-01-30 18:57:50.332597
-Homepage|Running Good|2023-01-30 18:57:53.900424
-getcalibration|Max value generated|2023-01-31 11:01:53.570978
-getcalibration|Max value generated|2023-01-31 11:03:08.394936
-getcalibration|Max value generated|2023-01-31 11:03:09.540447
-getcalibration|Max value generated|2023-01-31 11:07:59.935349
-getcalibration|Max value generated|2023-01-31 11:08:01.094349
-Homepage|Running Good|2023-01-31 11:09:23.034399
-getcalibration|Max value generated|2023-01-31 11:09:31.707067
-getcalibration|Max value generated|2023-01-31 11:09:31.842561
-getcalibration|Max value generated|2023-01-31 11:10:25.637809
-getcalibration|Max value generated|2023-01-31 11:10:27.399783
-Homepage|Running Good|2023-01-31 11:10:29.900937
-fileupload|Called|2023-01-31 12:32:18.318454
-fileupload|Called|2023-01-31 12:32:43.385078
-fileupload|Called|2023-01-31 12:33:16.008415
-fileupload|Called|2023-01-31 12:33:27.077326
-fileupload|Called|2023-01-31 12:34:03.114294
-fileupload|Called|2023-01-31 12:35:07.383624
-fileupload|Called|2023-01-31 12:54:18.296054
-fileupload|Called|2023-01-31 12:57:23.557394
-fileupload|Called|2023-01-31 12:58:09.587077
-fileupload|Called|2023-01-31 12:58:55.651367
-fileupload|Called|2023-01-31 13:01:02.454538
-fileupload|Called|2023-01-31 13:01:15.159978
-fileupload|Called|2023-01-31 13:05:34.463919
-getcalibration|Max value generated|2023-01-31 14:59:45.176469
-getlog|Log Saved|2023-01-31 15:00:05.471568
-getlog|Log Saved|2023-01-31 15:01:48.393738
-getlog|Log Saved|2023-01-31 15:02:54.298538
-getcalibration|Max value generated|2023-01-31 15:02:57.270168
-getcalibration|Max value generated|2023-01-31 16:50:03.839182
-Homepage|Running Good|2023-02-06 18:18:33.947983
-getcalibration|Max value generated|2023-02-06 18:19:00.900026
-trychatgpt|Answer Generated|2023-02-06 18:19:33.003918
-trychatgpt|Answer Generated|2023-02-06 18:20:10.371149
-trychatgpt|Answer Generated|2023-02-06 18:22:44.742925
-trychatgpt|Answer Generated|2023-02-06 18:24:25.600889
-trychatgpt|Answer Generated|2023-02-06 18:25:51.033501
-trychatgpt|Answer Generated|2023-02-06 18:28:27.360628
-trychatgpt|Answer Generated|2023-02-06 18:29:17.377717
-trychatgpt|Answer Generated|2023-02-06 18:31:05.707602
-trychatgpt|Answer Generated|2023-02-06 18:32:14.254609
-trychatgpt|Answer Generated|2023-02-06 18:32:39.582816
-trychatgpt|Answer Generated|2023-02-06 18:33:07.313483
-trychatgpt|Answer Generated|2023-02-06 18:33:18.014816
-trychatgpt|Answer Generated|2023-02-06 18:33:26.670678
-trychatgpt|Answer Generated|2023-02-06 18:33:39.455166
-trychatgpt|Answer Generated|2023-02-06 18:33:59.792655
-trychatgpt|Answer Generated|2023-02-06 18:34:17.977255
-trychatgpt|Answer Generated|2023-02-06 18:34:24.339230
-trychatgpt|Answer Generated|2023-02-06 18:34:29.703892
-trychatgpt|Answer Generated|2023-02-06 18:34:42.956116
-trychatgpt|Answer Generated|2023-02-06 19:47:06.507252
-trychatgpt|Answer Generated|2023-02-06 19:47:23.557107
-trychatgpt|Answer Generated|2023-02-06 19:51:14.710333
-trychatgpt|Answer Generated|2023-02-06 19:51:32.359274
-getchatgptlog|Log Saved|2023-02-06 20:59:47.987502
-getchatgptlog|Log Saved|2023-02-06 21:01:44.639548
-Homepage|Running Good|2023-02-06 21:02:40.670251
-Homepage|Running Good|2023-02-06 21:02:43.992898
-Homepage|Running Good|2023-02-06 21:02:44.666254
-Homepage|Running Good|2023-02-06 21:03:17.881638
+filelist|Called|2023-02-09 14:10:56.242162
+filelist|Called|2023-02-09 14:11:29.060968
+filelist|Called|2023-02-09 14:11:45.632411
+Homepage|Running Good|2023-02-23 10:03:24.726738
+getname|Get name|2023-02-23 10:03:37.129209
+fileupload|Called|2023-02-23 10:07:32.371845
+fileupload|Called|2023-02-23 10:08:06.483403
+filelist|Called|2023-02-23 10:09:57.989673
+fileupload|Called|2023-02-23 10:10:15.401586
+filelist|Called|2023-02-23 10:10:21.383734

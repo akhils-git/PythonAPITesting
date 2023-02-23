@@ -47,24 +47,37 @@ def upload_file():
     api_log_save("fileupload", "Called")
     return responce
 
+@app.route('/api/detectimageobjects', methods=['POST'])
+def upload_file():
+    print(request.files)
+    responce = file_controller.upload_file(request)
+
+    
+    api_log_save("fileupload", "Called")
+    return responce
 
 @app.route('/api/filelist', methods=['GET'])
 def filelist():
-    print(request.files)
     responce = file_controller.list_files()
     api_log_save("filelist", "Called")
     return responce
 
 
-@app.route("/api/trychatgpt/<qtn>")
-def trychatgpt(qtn):
-    chatgpt_responce = chatgpt_controller.shoot(qtn.replace("_", " "))
-    chatgpt_log_save(qtn, chatgpt_responce["chatgpt_responce"])
-    return jsonify(chatgpt_responce)
+@app.route('/api/mongodb_quick_save', methods=['GET'])
+def mongodb_quick_save():
+    responce = file_controller.list_files()
+    api_log_save("filelist", "Called")
+    return responce
+
+# @app.route("/api/trychatgpt/<qtn>")
+# def trychatgpt(qtn):
+#     chatgpt_responce = chatgpt_controller.shoot(qtn.replace("_", " "))
+#     chatgpt_log_save(qtn, chatgpt_responce["chatgpt_responce"])
+#     return jsonify(chatgpt_responce)
 
 
-@app.route('/api/getchatgptlog', methods=['GET'])
-def getchatgptlog():
+# @app.route('/api/getchatgptlog', methods=['GET'])
+# def getchatgptlog():
     api_log_save("getchatgptlog", "Log Saved")
     logFile = open("./storage/chat_gpt_log_file.txt", "r")
     return jsonify(logFile.read())
