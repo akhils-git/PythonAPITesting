@@ -22,7 +22,7 @@ class ImageProcessingController:
         # Extract object details
         x = results.pandas().xyxy[0]
         objects = []
-        for i in range(x.shape[0]):
+        for i in range(x.shape[0]-1):
             obj = {
                 'Name': x.loc[i, 'name'],
                 'Accuracy': x.loc[i, 'confidence'],
