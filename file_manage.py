@@ -41,7 +41,9 @@ class FileController:
                     {'message': self.ALLOWED_EXTENSIONS})
                 resp.status_code = 400
                 return resp
-        return responce_collection
+        resp.status_code = 201
+        resp = jsonify(responce_collection)
+        return resp
 
     def list_files(self):
         staticPath = "./storage/uploads/"
