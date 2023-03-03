@@ -1,6 +1,7 @@
 # FROM python:3.8-alpine
 
 FROM python
+
 RUN pip install numpy
 RUN pip install pandas
 RUN pip install scikit-learn

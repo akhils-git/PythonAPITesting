@@ -44,7 +44,7 @@ def getcalibration(min_sensor, min_weight, max_weight):
 
 @app.route('/api/fileupload', methods=['POST'])
 def upload_file():
-    print(request.files)
+    # print(request.files)
     responce = file_controller.upload_file(request)
     api_log_save("fileupload", "Called")
     return responce
