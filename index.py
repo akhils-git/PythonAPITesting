@@ -5,13 +5,49 @@ from core.file_manage import FileController
 from project_constents.globel_locations import GlobelLocations, Project
 from zipfile import ZipFile
 import os
+from core.error import not_found_error, method_not_allowed_error, internal_server_error
+from flask_jwt_extended import JWTManager
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 
 app = Flask(__name__)
 file_controller = FileController()
 base_path = GlobelLocations()
 project_details = Project()
 
+app.register_error_handler(404, not_found_error)
+app.register_error_handler(405, method_not_allowed_error)
+
+# Configure JWT settings
+# Change this to a strong, secret key
+app.config['JWT_SECRET_KEY'] = '1234abcA'
+jwt = JWTManager(app)
+
+# Mock user data for demonstration (replace with your user data)
+users = {
+    'admin': {
+        'password': '1234',
+        'id': 1
+    }, 'user': {
+        'password': '6789',
+        'id': 1
+    }
+}
+
 print(f"Api Test Engine {project_details.version} Running...")
+print(f"System Path: {base_path.root_path}")
+
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    username = request.json.get('username')
+    password = request.json.get('password')
+
+    if username in users and password == users[username]['password']:
+        response = jsonify({"token": create_access_token(
+            identity=username), "Username": username})
+        return response
+    else:
+        return jsonify({"message": "Invalid credentials"}), 401
 
 
 @app.route("/")
@@ -21,25 +57,32 @@ def hello():
 
 
 @app.route('/api/getname/<name>', methods=['GET'])
+@jwt_required()
 def getname(name):
     api_log_save("getname", "Get name")
-    return jsonify("Hi " + name + " Called at " + str(datetime.now()))
+    response = jsonify("Hi " + name + " Called at " + str(datetime.now()))
+    response.status_code = 200
+    response.headers['Location'] = "test"
+    return response
 
 
 @app.route('/api/getlog', methods=['GET'])
 def getlog():
     api_log_save("getlog", "Log Saved")
     logFile = open(base_path.upload_path+"log_file.txt", "r")
-    return jsonify(logFile.read())
+    response = jsonify(logFile.read())
+    response.status_code = 200  # Created status code
+    response.headers['Location'] = "test"
+    return response
 
 
 @app.route('/api/fileupload', methods=['POST'])
 def upload_file():
     # print(request.files)
-    responce = file_controller.upload_file(request)
-    print("api called")
+    response = file_controller.upload_file(request)
+    response.status_code = 200  # Created status code
     api_log_save("fileupload", "Called")
-    return responce
+    return response
 
 
 @app.route('/api/filelist', methods=['GET'])
@@ -49,16 +92,13 @@ def filelist():
     return responce
 
 
-@app.route('/api/filedownload', methods=['GET'])
-def filedownload():
-   # Replace 'path_to_your_file' with the actual path to the file you want to send
-    file_path = base_path.upload_path + 'Car2.png'
-
-    # You can specify a custom filename for the client to save the file as (optional)
-    client_filename = 'Car2.png'
-
+@app.route('/api/filedownload/<file_name>', methods=['GET'])
+def filedownload(file_name):
+    file_path = os.path.dirname(os.path.abspath(
+        __file__)) + "\\" + base_path.upload_path + file_name
+    file_path = os.path.normpath(file_path)
+    client_filename = file_name
     return send_file(file_path, as_attachment=True, download_name=client_filename)
-    return responce
 
 # @app.route('/api/filesdownload', methods=['GET'])
 # def filedownload():

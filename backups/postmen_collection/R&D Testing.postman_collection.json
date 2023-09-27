@@ -1,0 +1,466 @@
+{
+	"info": {
+		"_postman_id": "cb1789a2-a775-4403-a5d8-f653d4ca17cc",
+		"name": "R&D Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11504103",
+		"_collection_link": "https://bijukalanjoordev.postman.co/workspace/Postman-Workspace~d81de708-5c39-4d6a-8dd3-b127f07d364f/collection/11504103-cb1789a2-a775-4403-a5d8-f653d4ca17cc?action=share&source=collection_link&creator=11504103"
+	},
+	"item": [
+		{
+			"name": "VMS",
+			"item": [
+				{
+					"name": "Calibration Api",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Akhil/Pictures/akhiraj_AT_Email_signature-1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.99.144.77:5000/api/getcalibration/500/1000/10000",
+							"protocol": "http",
+							"host": [
+								"192",
+								"99",
+								"144",
+								"77"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"getcalibration",
+								"500",
+								"1000",
+								"10000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Log",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Akhil/Pictures/akhiraj_AT_Email_signature-1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.99.144.77:5000/api/getlog",
+							"protocol": "http",
+							"host": [
+								"192",
+								"99",
+								"144",
+								"77"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"getlog"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Testing",
+			"item": [
+				{
+					"name": "File upload Api",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Akhil/Pictures/akhiraj_AT_Email_signature-1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/file-upload",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"file-upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Api base",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Azure Done.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Log",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Azure Done.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/api/getlog",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"getlog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wish me",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Azure Done.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/api/getname/Sachin",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"getname",
+						"Sachin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file1",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Desktop/CertificateOfCompletion_Docker for Developers.pdf"
+						},
+						{
+							"key": "file2",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Desktop/AppTeam TVM Office Floor Measurements.pdf"
+						},
+						{
+							"key": "file3",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Desktop/Questions related with BlueIoT System and Integration.pdf"
+						},
+						{
+							"key": "file4",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Desktop/ProejctSpecDoc.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/api/fileupload?file",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"fileupload"
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Akhil_raj_TY_Email_signature.png"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Car2.png",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/api/filelist",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"filelist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download File",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file1",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Car2.png"
+						},
+						{
+							"key": "file2",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Azure Done.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/api/filedownload/ProejctSpecDoc.pdf",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"filedownload",
+						"ProejctSpecDoc.pdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download all from storage",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file1",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Car2.png"
+						},
+						{
+							"key": "file2",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Azure Done.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/api/downloadallfromstorage",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"downloadallfromstorage"
+					]
+				},
+				"description": "[http://localhost:5000/api/downloadallfromstorage](http://localhost:5000/api/downloadallfromstorageEndFragment)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Api log",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Akhil_raj_TY_Email_signature.png"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Akhil/Pictures/Car2.png",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/api/getlog",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"getlog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/api/login",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

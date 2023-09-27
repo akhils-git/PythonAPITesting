@@ -1,9 +1,12 @@
+import os
+
+
 class GlobelLocations:
-    # Static variable
     upload_path = 'storage/uploads/'
     log_path = 'storage/logs/'
+    root_path = os.path.normpath(os.path.dirname(os.path.dirname(os.path.abspath(
+        __file__))))
 
 
 class Project:
-    # Static variable
     version = '1.0'
