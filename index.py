@@ -50,16 +50,6 @@ def upload_file():
     api_log_save("fileupload", "Called")
     return responce
 
-
-# @app.route('/api/detectimageobjects', methods=['POST'])
-# def detectimageobjects():
-#     print(request.files)
-#     responce = file_controller.upload_file(request)
-
-#     api_log_save("fileupload", "Called")
-#     return responce
-
-
 @app.route('/api/filelist', methods=['GET'])
 def filelist():
     responce = file_controller.list_files()
@@ -81,19 +71,9 @@ def detectimageobjects():
     api_log_save("fileupload", "Called")
     return responce
 
-# @app.route("/api/trychatgpt/<qtn>")
-# def trychatgpt(qtn):
-#     chatgpt_responce = chatgpt_controller.shoot(qtn.replace("_", " "))
-#     chatgpt_log_save(qtn, chatgpt_responce["chatgpt_responce"])
-#     return jsonify(chatgpt_responce)
-
-
-# @app.route('/api/getchatgptlog', methods=['GET'])
-# def getchatgptlog():
     api_log_save("getchatgptlog", "Log Saved")
     logFile = open("./storage/chat_gpt_log_file.txt", "r")
     return jsonify(logFile.read())
-
 
 def api_log_save(api_name, message):
     logFile = open("./storage/log_file.txt", "a")  # append mode

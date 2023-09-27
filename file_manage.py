@@ -18,6 +18,7 @@ class FileController:
         for file in request.files:
             all_files.append(request.files[file])
         responce_collection = []
+        # print(all_files)
         for file in all_files:
             if file.filename == '':
                 resp = jsonify(
@@ -39,7 +40,7 @@ class FileController:
                 resp.status_code = 201
                 responce_collection.append(
                     {'message': 'File successfully uploaded', 'size': file_size.st_size/1024, "file_name": file.filename})
-                return resp
+                # return resp
             else:
                 resp = jsonify(
                     {'message': self.ALLOWED_EXTENSIONS})
