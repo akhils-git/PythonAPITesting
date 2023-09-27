@@ -26,7 +26,7 @@ class FileController:
                 return resp
         for file in all_files:
             if file and self.allowed_file(file.filename):
-                print("File name", file.filename)
+                # print("File name", file.filename)
                 upload_basepath = './storage/uploads/'+file.filename
                 file.save(upload_basepath)
                 file_size = os.stat(upload_basepath)
