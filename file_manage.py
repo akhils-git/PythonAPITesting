@@ -29,13 +29,17 @@ class FileController:
                 # print("File name", file.filename)
                 upload_basepath = './storage/uploads/'+file.filename
                 file.save(upload_basepath)
+                print("saved")
+                resp = jsonify(
+                    {'message': 'File uploaded'})
+
                 file_size = os.stat(upload_basepath)
-                # resp = jsonify(
-                #     {'message': 'File successfully uploaded', 'size': file_size.st_size/1024, "file_name": file.filename})
-                # resp.status_code = 201
+                resp = jsonify(
+                    {'message': 'File successfully uploaded', 'size': file_size.st_size/1024, "file_name": file.filename})
+                resp.status_code = 201
                 responce_collection.append(
                     {'message': 'File successfully uploaded', 'size': file_size.st_size/1024, "file_name": file.filename})
-                # return resp
+                return resp
             else:
                 resp = jsonify(
                     {'message': self.ALLOWED_EXTENSIONS})
