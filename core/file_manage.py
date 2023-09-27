@@ -1,5 +1,7 @@
 from flask import jsonify
 import os
+from project_constents.globel_locations import GlobelLocations
+base_path = GlobelLocations()
 
 
 class FileController:
@@ -28,9 +30,8 @@ class FileController:
         for file in all_files:
             if file and self.allowed_file(file.filename):
                 # print("File name", file.filename)
-                upload_basepath = './storage/uploads/'+file.filename
+                upload_basepath = base_path.upload_path+file.filename
                 file.save(upload_basepath)
-                print("saved")
                 resp = jsonify(
                     {'message': 'File uploaded'})
 

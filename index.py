@@ -1,22 +1,17 @@
 
 from flask import Flask, jsonify, request, send_file
 from datetime import datetime
-# from calibration_predictor import calibrationController
-from core.calibration_predictor import calibrationController
-from core.chat_gpt import chatGPTController
-from file_manage import FileController
-from core.image_processing import ImageProcessingController
+from core.file_manage import FileController
+from project_constents.globel_locations import GlobelLocations, Project
 from zipfile import ZipFile
 import os
 
-
 app = Flask(__name__)
-cal = calibrationController()
 file_controller = FileController()
-chatgpt_controller = chatGPTController()
-image_processing_controller = ImageProcessingController()
+base_path = GlobelLocations()
+project_details = Project()
 
-print("Python Api Running...")
+print(f"Api Test Engine {project_details.version} Running...")
 
 
 @app.route("/")
@@ -34,14 +29,8 @@ def getname(name):
 @app.route('/api/getlog', methods=['GET'])
 def getlog():
     api_log_save("getlog", "Log Saved")
-    logFile = open("./storage/log_file.txt", "r")
+    logFile = open(base_path.upload_path+"log_file.txt", "r")
     return jsonify(logFile.read())
-
-
-@app.route("/api/getcalibration/<min_sensor>/<min_weight>/<max_weight>")
-def getcalibration(min_sensor, min_weight, max_weight):
-    api_log_save("getcalibration", "Max value generated")
-    return jsonify(cal.predict_max_value(min_sensor, min_weight, max_weight))
 
 
 @app.route('/api/fileupload', methods=['POST'])
@@ -63,7 +52,7 @@ def filelist():
 @app.route('/api/filedownload', methods=['GET'])
 def filedownload():
    # Replace 'path_to_your_file' with the actual path to the file you want to send
-    file_path = 'storage/uploads/Car2.png'
+    file_path = base_path.upload_path + 'Car2.png'
 
     # You can specify a custom filename for the client to save the file as (optional)
     client_filename = 'Car2.png'
@@ -98,35 +87,9 @@ def download_all_from_storage():
     return send_file(zip_filename, as_attachment=True, download_name='multiple_files.zip')
 
 
-@app.route('/api/mongodb_quick_save', methods=['GET'])
-def mongodb_quick_save():
-    responce = file_controller.list_files()
-    api_log_save("filelist", "Called")
-    return responce
-
-
-@app.route('/api/detectimageobjects', methods=['POST'])
-def detectimageobjects():
-    print(request.files)
-    responce = image_processing_controller.object_detection(request)
-    api_log_save("fileupload", "Called")
-    return responce
-
-    api_log_save("getchatgptlog", "Log Saved")
-    logFile = open("./storage/chat_gpt_log_file.txt", "r")
-    return jsonify(logFile.read())
-
-
 def api_log_save(api_name, message):
-    logFile = open("./storage/log_file.txt", "a")  # append mode
+    logFile = open(base_path.log_path+"log_file.txt", "a")  # append mode
     logFile.write(f"{api_name}|{message}|{str(datetime.now())}\n")
-    logFile.close()
-
-
-def chatgpt_log_save(qtn, answer):
-    logFile = open("./storage/chat_gpt_log_file.txt", "a")  # append mode
-    logFile.write(
-        f"Question : {qtn}\nAnswer:{answer}\nAnswer Generated at:{str(datetime.now())}\n\n")
     logFile.close()
 
 
